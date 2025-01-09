@@ -52,12 +52,15 @@ public class UserService {
     @Transactional
     public User updateUser(String email, String newEmail) {
         //TODO: provide implementation for updating user
+        userRepository.findByEmail(email).ifPresent(user -> {user.setEmail(newEmail);});
         return null;
     }
 
     @Transactional
     public void registerForLecture(String login, LectureRequest lectureRequest) {
         //TODO: provide implementation for lecture registration
+//        var userEntity = userRepository.findByLogin(login);
+//        if
     }
 
     @Transactional
